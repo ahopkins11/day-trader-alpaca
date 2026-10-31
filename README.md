@@ -1,4 +1,26 @@
-# The Day Trader skill
+# The Day Trader skill: Alpaca edition
+
+A fork of [Jakeschincariol/day-trader-skill](https://github.com/Jakeschincariol/day-trader-skill), set up for trading US stocks in your own Alpaca brokerage account. Every dollar at risk is yours, so paper trading stays the default until you switch it off.
+
+For prop firm futures accounts (Topstep and similar), use the sibling fork `day-trader-propfirm` instead: this one trades stocks only.
+
+## What this fork changes
+
+- Named `day-trader-alpaca` so it installs next to the prop firm fork without clashing.
+- Alpaca is the broker: the example config says `"broker": "alpaca"` and `"paper": true`, and `/trader-broker` covers Alpaca's MCP server first (Interactive Brokers stays as the alternative).
+- A quick start for Alpaca below. The skills, tools and tests are upstream's, unchanged, so upstream fixes merge cleanly (`git fetch upstream && git merge upstream/main`).
+
+## Alpaca quick start
+
+1. Make an Alpaca account and create **paper** API keys in the dashboard (paper keys are separate from live keys).
+2. Add Alpaca's MCP server to Claude Desktop using `trader-broker/claude_desktop_config.example.json`. The keys go in that file only, never in a chat.
+3. In Claude, set every Alpaca tool that places, changes or cancels an order to "Needs approval".
+4. Copy `trader-budget/config.example.json` to `trader/config.json` in your project and set your budget, max loss per trade and daily loss limit.
+5. Ask Claude for your Alpaca account info and check in the dashboard that it is the paper account.
+
+---
+
+## Upstream README
 
 11 Claude skills for day trading: scan thousands of charts, track breaking news, time every entry and exit, and replay every outcome before you risk a dollar.
 
@@ -26,7 +48,7 @@ an order on its own. Paper trading is the default.
 Paste this into Claude:
 
 ```
-https://github.com/Jakeschincariol/day-trader-skill
+https://github.com/YOUR_GITHUB_USERNAME/day-trader-alpaca
 
 install skill
 ```
@@ -34,17 +56,17 @@ install skill
 Or as a plugin, in Claude Code:
 
 ```
-/plugin marketplace add Jakeschincariol/day-trader-skill
-/plugin install day-trader-skill@day-trader-skill
+/plugin marketplace add YOUR_GITHUB_USERNAME/day-trader-alpaca
+/plugin install day-trader-alpaca@day-trader-alpaca
 ```
 
 Claude Code namespaces plugin skills, so installed as a plugin they show up as
-`/day-trader-skill:trader-scanner` and so on. Copy the folders instead if you want
+`/day-trader-alpaca:trader-scanner` and so on. Copy the folders instead if you want
 plain `/trader-scanner`:
 
 ```bash
-git clone https://github.com/Jakeschincariol/day-trader-skill.git
-cp -r day-trader-skill/trader-* ~/.claude/skills/
+git clone https://github.com/YOUR_GITHUB_USERNAME/day-trader-alpaca.git
+cp -r day-trader-alpaca/trader-* ~/.claude/skills/
 ```
 
 Project-local instead of global: copy the same folders into your repo's
@@ -213,4 +235,4 @@ trader-pelosi/      SKILL.md, ptr.py
 tests/              unittest suite + offline fixtures
 ```
 
-MIT. Made by [Jake Schincariol](https://opusjake.ai).
+MIT. Made by [Jake Schincariol](https://opusjake.ai); Alpaca edition forked by AJ Hopkins. The original MIT license and copyright notice are kept in `LICENSE`.
