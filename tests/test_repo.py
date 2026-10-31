@@ -73,8 +73,8 @@ class Repo(unittest.TestCase):
             readme = " ".join(fh.read().split())
         self.assertTrue(readme.startswith("# The Day Trader skill: Alpaca edition"))
         for line in (ABOUT,
-                     "https://github.com/YOUR_GITHUB_USERNAME/day-trader-alpaca install skill",
-                     "/plugin marketplace add YOUR_GITHUB_USERNAME/day-trader-alpaca",
+                     "https://github.com/ahopkins11/day-trader-alpaca install skill",
+                     "/plugin marketplace add ahopkins11/day-trader-alpaca",
                      "/plugin install day-trader-alpaca@day-trader-alpaca",
                      "## Fine print"):
             self.assertIn(line, readme)

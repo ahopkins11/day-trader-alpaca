@@ -48,7 +48,7 @@ an order on its own. Paper trading is the default.
 Paste this into Claude:
 
 ```
-https://github.com/YOUR_GITHUB_USERNAME/day-trader-alpaca
+https://github.com/ahopkins11/day-trader-alpaca
 
 install skill
 ```
@@ -56,7 +56,7 @@ install skill
 Or as a plugin, in Claude Code:
 
 ```
-/plugin marketplace add YOUR_GITHUB_USERNAME/day-trader-alpaca
+/plugin marketplace add ahopkins11/day-trader-alpaca
 /plugin install day-trader-alpaca@day-trader-alpaca
 ```
 
@@ -65,7 +65,7 @@ Claude Code namespaces plugin skills, so installed as a plugin they show up as
 plain `/trader-scanner`:
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/day-trader-alpaca.git
+git clone https://github.com/ahopkins11/day-trader-alpaca.git
 cp -r day-trader-alpaca/trader-* ~/.claude/skills/
 ```
 
